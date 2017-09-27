@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="{{ url_for('static',filename='bootstrap.css') }}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="container">
+    <br><br>
+    <div class="page-header">
+        <h1 class="text-center">Flask To-Do List</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>

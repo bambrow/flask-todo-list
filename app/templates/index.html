@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+<head>
+    <title>Flask To-Do List</title>
+</head>
+{% block content %}
+<body>
+<div>
+    {% if todos %}
+    <table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <td>
+                <p class="text-uppercase"><strong>Todo</strong></p>
+            </td>
+            <td>
+                <p class="text-uppercase"><strong>Time</strong></p>
+            </td>
+            <td>
+                <p class="text-uppercase"><strong>Operation</strong></p>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for t in todos %}
+        {% if t.status == 0 %}
+        <tr class="info">
+            <td>
+                <p class="text-primary">{{ t.content }}</p>
+            </td>
+            <td>
+                <p class="text-primary">{{ t.time.strftime('%m/%d %H:%M:%S') }}</p>
+            </td>
+            <td class="btn-group">
+                <a href="/do/{{ t.id }}" class="btn btn-success">Do</a>
+                <a href="/delete/{{ t.id }}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr class="danger">
+            <td>
+                <p class="text-muted"><del>{{ t.content }}</del></p>
+            </td>
+            <td>
+                <p class="text-muted"><del>{{ t.time.strftime('%m/%d %H:%M:%S') }}</del></p>
+            </td>
+            <td class="btn-group">
+                <a href="/undo/{{ t.id }}" class="btn btn-warning">Undo</a>
+                <a href="/delete/{{ t.id }}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endif %}
+    {% endfor %}
+    </tbody>
+    </table>
+    {% else %}
+    <h4 class="text-info">Add a new todo now!</h4>
+    {% endif %}
+</div>
+
+
+    <form class="input-group" action="/add" method="post">
+        {{ form.hidden_tag() }}
+        {{ form.content(class="form-control") }}
+        <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit">Add</button>
+        </span>
+    </form>
+
+{% for error in form.errors.content %}
+<span>{{ error }}</span>
+{% endfor %}
+</body>
+{% endblock %}

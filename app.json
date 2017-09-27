@@ -1,0 +1,6 @@
+{
+  "name": "flask-todo-list",
+  "description": "A Simple Flask To-Do App",
+  "image": "heroku/python",
+  "repository": "https://github.com/bambrow/flask-todo-list"
+}
