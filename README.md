@@ -1,9 +1,5 @@
-# flask-todo-list
+# Flask To-Do List
 
-Demo:
-https://flask-todo-list.herokuapp.com/
+This is an online to-do list application based on Flask. The demo of this project can be found [here](https://flask-todo-list.herokuapp.com/). This [website](http://defshine.github.io/awesome-flask-todo/index.html) is the reference for this project.
 
-
-Ref:
-http://defshine.github.io/awesome-flask-todo/index.html
-
+![demo](https://github.com/bambrow/flask-todo-list/raw/master/readme.png)
