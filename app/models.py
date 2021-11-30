@@ -12,6 +12,7 @@ class Todo(db.Document):
     status = db.IntField(default=0)
     # status of to-do
 
+
 TodoForm = model_form(Todo)
 # create TodoForm class
 # this class is used for form validation
